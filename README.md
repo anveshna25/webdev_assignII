@@ -196,3 +196,10 @@ Base URL: `http://localhost:3000`
    ```
 3. **Global Error Handling**:
    Catches server errors and malformed JSON payloads gracefully, preventing unhandled process crashes.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LICENSE) file for details.
+

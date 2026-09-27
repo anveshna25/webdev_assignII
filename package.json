@@ -8,8 +8,8 @@
     "dev": "node --watch app.js"
   },
   "keywords": ["express", "node", "rest-api", "crud"],
-  "author": "",
-  "license": "ISC",
+  "author": "Anveshna",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.19.2"
   }

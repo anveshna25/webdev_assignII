@@ -2,11 +2,6 @@ const express = require('express');
 const router = express.Router();
 let students = require('../data/students');
 
-/**
- * @route   GET /students
- * @desc    Retrieve and return the full list of students
- * @access  Public
- */
 router.get('/', (req, res) => {
   return res.status(200).json({
     success: true,
@@ -15,11 +10,6 @@ router.get('/', (req, res) => {
   });
 });
 
-/**
- * @route   GET /students/:id
- * @desc    Find and return a single student by ID
- * @access  Public
- */
 router.get('/:id', (req, res) => {
   const studentId = parseInt(req.params.id, 10);
 
@@ -45,15 +35,9 @@ router.get('/:id', (req, res) => {
   });
 });
 
-/**
- * @route   POST /students
- * @desc    Create a new student (requires name and course)
- * @access  Public
- */
 router.post('/', (req, res) => {
   const { name, course, email } = req.body;
 
-  // Validation: require name and course
   if (
     !name ||
     !course ||
@@ -68,7 +52,6 @@ router.post('/', (req, res) => {
     });
   }
 
-  // Generate a unique ID (maximum existing ID + 1, or 1 if empty)
   const newId = students.length > 0 ? Math.max(...students.map((s) => s.id)) + 1 : 1;
 
   const newStudent = {
@@ -87,11 +70,7 @@ router.post('/', (req, res) => {
   });
 });
 
-/**
- * @route   PUT /students/:id
- * @desc    Find student by ID and update fields provided in request body
- * @access  Public
- */
+
 router.put('/:id', (req, res) => {
   const studentId = parseInt(req.params.id, 10);
 
@@ -113,7 +92,7 @@ router.put('/:id', (req, res) => {
 
   const { name, course, email } = req.body;
 
-  // Validate fields if provided
+
   if (name !== undefined) {
     if (typeof name !== 'string' || name.trim() === '') {
       return res.status(400).json({
@@ -145,11 +124,6 @@ router.put('/:id', (req, res) => {
   });
 });
 
-/**
- * @route   DELETE /students/:id
- * @desc    Remove student by ID from the array
- * @access  Public
- */
 router.delete('/:id', (req, res) => {
   const studentId = parseInt(req.params.id, 10);
 
