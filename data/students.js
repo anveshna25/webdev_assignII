@@ -1,7 +1,3 @@
-/**
- * Initial dataset of students stored in-memory.
- * Each student record contains at least id, name, and course.
- */
 let students = [
   {
     id: 1,
